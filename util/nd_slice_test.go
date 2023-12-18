@@ -1,7 +1,10 @@
 package util
 
 import (
+	"fmt"
+	"math"
 	"reflect"
+	"strings"
 	"testing"
 )
 
@@ -155,6 +158,101 @@ func TestReduce(t *testing.T) {
 				)
 			},
 			result: 11,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := tt.reduce()
+			if !reflect.DeepEqual(got, tt.result) {
+				t.Errorf("Reduce() = %v, want %v", got, tt.result)
+			}
+		})
+	}
+}
+
+func TestReduceIndex(t *testing.T) {
+	tests := []struct {
+		name   string
+		reduce func() any
+		result interface{}
+	}{
+		{
+			name: "Add ints as decimal digits",
+			reduce: func() any {
+				return ReduceIndex(
+					[]int{1, 2, 3, 4, 5},
+					func(a, idx, b int) int { return a + int(math.Pow10(idx))*b },
+					0,
+				)
+			},
+			result: 54321,
+		},
+		{
+			name: "Multiply floats",
+			reduce: func() any {
+				return ReduceIndex(
+					[]float64{1.25, 2.25, 3.25, 4.25},
+					func(acc float64, idx int, b float64) float64 { return acc * (float64(idx) + 0.5) * b },
+					1.0,
+				)
+			},
+			result: (1.25 * 0.5) * (2.25 * 1.5) * (3.25 * 2.5) * (4.25 * 3.5),
+		},
+		{
+			name: "Concat strings",
+			reduce: func() any {
+				return ReduceIndex(
+					[]string{" ", "World", "!"},
+					func(acc string, idx int, b string) string { return acc + fmt.Sprintf("%d: %s\n", idx, b) },
+					"Hello",
+				)
+			},
+			result: "Hello" + "0:  \n" + "1: World\n" + "2: !\n",
+		},
+		{
+			name: "Sum number of chars in strings",
+			reduce: func() any {
+				return ReduceIndex(
+					[]string{"Hello", "World", "!"},
+					func(a int, idx int, b string) int { return a + (1<<idx)*len(b) },
+					0,
+				)
+			},
+			result: 5 + 5<<1 + 1<<2,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := tt.reduce()
+			if !reflect.DeepEqual(got, tt.result) {
+				t.Errorf("Reduce() = %v, want %v", got, tt.result)
+			}
+		})
+	}
+}
+
+func TestReduceMap(t *testing.T) {
+	tests := []struct {
+		name   string
+		reduce func() any
+		result interface{}
+	}{
+		{
+			name: "Concat strings",
+			reduce: func() any {
+				return ReduceMap(
+					map[string]string{"Hello": " ", "World": "!", "!": "\n"},
+					func(acc *strings.Builder, k, v string) *strings.Builder {
+						acc.WriteString(k)
+						acc.WriteString(v)
+						return acc
+					},
+					new(strings.Builder),
+				).String()
+			},
+			result: "Hello World!!\n",
 		},
 	}
 

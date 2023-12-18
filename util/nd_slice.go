@@ -51,3 +51,21 @@ func Reduce[S ~[]E, E any, R any](s S, f func(R, E) R, init R) R {
 	}
 	return init
 }
+
+// ReduceIndex reduces a slice to a single value using a given function.
+//
+// The 2nd argument to the reduce function f is the index of the current element.
+func ReduceIndex[S ~[]E, E any, R any](s S, f func(R, int, E) R, init R) R {
+	for i, e := range s {
+		init = f(init, i, e)
+	}
+	return init
+}
+
+// ReduceMap reduces a map to a single value using a given function.
+func ReduceMap[K comparable, V any, R any](m map[K]V, f func(R, K, V) R, init R) R {
+	for k, v := range m {
+		init = f(init, k, v)
+	}
+	return init
+}

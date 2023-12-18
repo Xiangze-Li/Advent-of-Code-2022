@@ -4,6 +4,7 @@ import (
 	"advent2022/util"
 	"fmt"
 	"io"
+	"reflect"
 	"strconv"
 	"strings"
 	"time"
@@ -20,7 +21,7 @@ func solve(day, part int, p Puzzle, output io.Writer) {
 		}
 	}()
 	fmt.Fprintf(output, "Solution for day %d part %d ", day, part)
-	var solveFunc func() int64
+	var solveFunc func() any
 	if part == 1 {
 		solveFunc = p.Solve1
 	} else {
@@ -31,7 +32,16 @@ func solve(day, part int, p Puzzle, output io.Writer) {
 	res := solveFunc()
 	used := time.Since(start)
 
-	fmt.Fprintf(output, "in %s\n\t%d\n", used.String(), res)
+	fmt.Fprintf(output, "in %s\n", used.String())
+	if k := reflect.TypeOf(res).Kind(); k == reflect.Slice || k == reflect.Array {
+		v := reflect.ValueOf(res)
+		for i := 0; i < v.Len(); i++ {
+			fmt.Fprintf(output, "\t%v\n", v.Index(i).Interface())
+		}
+	} else {
+		fmt.Fprintf(output, "\t%v\n", res)
+	}
+
 }
 
 func init() {

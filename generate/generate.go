@@ -29,6 +29,7 @@ func main() {
 		cmd := exec.Command("aoc",
 			"download", "-I", "-d", strconv.Itoa(day), "-y2022", "-i", dayName+"/input.txt")
 		util.Must(2, cmd.Run())
+		util.Must(os.OpenFile(dayName+"/example.txt", os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)).Close()
 	}()
 
 	go func() {

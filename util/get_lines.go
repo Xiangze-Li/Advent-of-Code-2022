@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+// GetLines reads lines from file and returns them as a slice of strings.
 func GetLines(filename string) []string {
 	f := Must(os.Open(filename))
 	defer f.Close()
@@ -17,6 +18,7 @@ func GetLines(filename string) []string {
 	return ret
 }
 
+// GetBlocks reads lines from file, splits them with empty lines, and returns them as 2D slice of strings.
 func GetBlocks(filename string) [][]string {
 	lines := GetLines(filename)
 	ret := make([][]string, 0)

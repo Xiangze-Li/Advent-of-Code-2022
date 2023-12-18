@@ -11,8 +11,11 @@
       "mode": "auto",
       "program": "${workspaceFolder}",
       "args": [
+        "--input",
+        "${input:Example}",
         "${input:Day}",
       ],
+      "showGlobalVariables": true,
     },
     {
       "name": "Debug Generator",
@@ -31,6 +34,16 @@
       "id": "Day",
       "type": "promptString",
       "description": "Day of the puzzle to run",
+    },
+    {
+      "id": "Example",
+      "type": "pickString",
+      "description": "Which input file to use",
+      "options": [
+        "{day}/example.txt",
+        "{day}/input.txt",
+      ],
+      "default": "{day}/input.txt",
     },
   ],
 }

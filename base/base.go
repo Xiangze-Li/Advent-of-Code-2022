@@ -4,8 +4,8 @@ import "fmt"
 
 type Puzzle interface {
 	Init(filename string)
-	Solve1() int64
-	Solve2() int64
+	Solve1() any
+	Solve2() any
 }
 
 var puzzles = make(map[int]Puzzle)

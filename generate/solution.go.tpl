@@ -13,11 +13,11 @@ func (p *p) Init(filename string) {
 	p.lines = util.GetLines(filename)
 }
 
-func (p *p) Solve1() int64 {
+func (p *p) Solve1() any {
 	return 0
 }
 
-func (p *p) Solve2() int64 {
+func (p *p) Solve2() any {
 	return 0
 }
 
