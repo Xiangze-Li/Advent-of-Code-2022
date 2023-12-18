@@ -8,6 +8,7 @@ import (
 	"slices"
 	"strconv"
 	"strings"
+	"sync"
 )
 
 func main() {
@@ -20,11 +21,18 @@ func main() {
 	dayName := fmt.Sprintf("%02d", day)
 	util.Must(1, os.Mkdir(dayName, 0755))
 
-	cmd := exec.Command("aoc",
-		"download", "-I", "-d", strconv.Itoa(day), "-y2022", "-i", dayName+"/input.txt")
-	util.Must(2, cmd.Run())
+	wg := &sync.WaitGroup{}
+	wg.Add(3)
 
-	{
+	go func() {
+		defer wg.Done()
+		cmd := exec.Command("aoc",
+			"download", "-I", "-d", strconv.Itoa(day), "-y2022", "-i", dayName+"/input.txt")
+		util.Must(2, cmd.Run())
+	}()
+
+	go func() {
+		defer wg.Done()
 		lines := util.GetLines("generate/solution.go.tpl")
 		file := util.Must(os.OpenFile(dayName+"/solution.go", os.O_CREATE|os.O_WRONLY|os.O_EXCL, 0644))
 		defer file.Close()
@@ -33,9 +41,11 @@ func main() {
 			line = strings.ReplaceAll(line, "{{.Day}}", strconv.Itoa(day))
 			util.Must(file.WriteString(line + "\n"))
 		}
-	}
+	}()
 
-	{
+	go func() {
+		defer wg.Done()
+
 		lines := util.GetLines("main.go")
 
 		imStart := slices.Index(lines, "import (")
@@ -44,10 +54,14 @@ func main() {
 		imEnd := slices.Index(lines[imStart:], ")") + imStart
 		util.Assert(imEnd != imStart-1, "Could not find end of import section")
 
-		slices.Insert(lines, imEnd, "\t_ \"advent2022/"+dayName+"\"")
+		lines = slices.Insert(lines, imEnd, "\t_ \"advent2022/"+dayName+"\"")
 
 		file := util.Must(os.OpenFile("main.go", os.O_WRONLY|os.O_TRUNC, 0644))
 		defer file.Close()
-		file.WriteString(strings.Join(lines, "\n"))
-	}
+		for _, line := range lines {
+			util.Must(file.WriteString(line + "\n"))
+		}
+	}()
+
+	wg.Wait()
 }
