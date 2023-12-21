@@ -1,0 +1,154 @@
+Solver for day 1 initialized in 250.1µs
+Solution for day 1 part 1 in 501ns
+        69289
+Solution for day 1 part 2 in 13.555µs
+        205615
+
+Solver for day 2 initialized in 193.665µs
+Solution for day 2 part 1 in 1.205896ms
+        10404
+Solution for day 2 part 2 in 1.173015ms
+        10334
+
+Solver for day 3 initialized in 67.777µs
+Solution for day 3 part 1 in 327.606µs
+        7795
+Solution for day 3 part 2 in 712.138µs
+        2703
+
+Solver for day 4 initialized in 1.429727ms
+Solution for day 4 part 1 in 14.317µs
+        605
+Solution for day 4 part 2 in 4.148µs
+        914
+
+Solver for day 5 initialized in 2.168285ms
+Solution for day 5 part 1 in 16.731µs
+        ZSQVCCJLL
+Solution for day 5 part 2 in 12.163µs
+        QZFJRWHGS
+
+Solver for day 6 initialized in 31.49µs
+Solution for day 6 part 1 in 197.812µs
+        1140
+Solution for day 6 part 2 in 702.691µs
+        3495
+
+Solver for day 7 initialized in 549.242µs
+Solution for day 7 part 1 in 3.537µs
+        1886043
+Solution for day 7 part 2 in 5.26µs
+        3842121
+
+Solver for day 8 initialized in 116.669µs
+Solution for day 8 part 1 in 146.285µs
+        1814
+Solution for day 8 part 2 in 675.269µs
+        330786
+
+Solver for day 9 initialized in 187.994µs
+Solution for day 9 part 1 in 1.804973ms
+        6190
+Solution for day 9 part 2 in 1.440527ms
+        2516
+
+Solver for day 10 initialized in 36.608µs
+Solution for day 10 part 1 in 14.377µs
+        14560
+Solution for day 10 part 2 in 17.844µs
+        #### #  # ###  #  # #### ###  #  # ####
+        #    # #  #  # #  # #    #  # #  #    #
+        ###  ##   #  # #### ###  #  # #  #   #
+        #    # #  ###  #  # #    ###  #  #  #
+        #    # #  # #  #  # #    #    #  # #
+        #### #  # #  # #  # #### #     ##  ####
+
+Solver for day 11 initialized in 45.836µs
+Solution for day 11 part 1 in 84.779µs
+        66124
+Solution for day 11 part 2 in 38.281122ms
+        19309892877
+
+Solver for day 12 initialized in 39.374µs
+Solution for day 12 part 1 in 423.226µs
+        517
+Solution for day 12 part 2 in 330.521µs
+        512
+
+Solver for day 13 initialized in 2.163268ms
+Solution for day 13 part 1 in 15.209µs
+        6623
+Solution for day 13 part 2 in 162.255µs
+        23049
+
+Solver for day 14 initialized in 3.545414ms
+Solution for day 14 part 1 in 3.943942ms
+        888
+Solution for day 14 part 2 in 151.18347ms
+        26461
+
+Solver for day 15 initialized in 9.986145486s
+Solution for day 15 part 1 in 6.833µs
+        5809294
+Solution for day 15 part 2 in 1.179259837s
+        10693731308112
+
+Solver for day 16 initialized in 29.05963ms
+Solution for day 16 part 1 in 915.622524ms
+        1923
+Solution for day 16 part 2 in 2.789128085s
+        2594
+
+Solver for day 17 initialized in 42.49µs
+Solution for day 17 part 1 in 1.178104ms
+        3193
+Solution for day 17 part 2 in 1.402576ms
+        1577650429835
+
+Solver for day 18 initialized in 593.365µs
+Solution for day 18 part 1 in 865.497µs
+        3454
+Solution for day 18 part 2 in 5.647605ms
+        2014
+
+Solver for day 19 initialized in 193.634µs
+Solution for day 19 part 1 in 22.925359513s
+        1404
+Solution for day 19 part 2 in 1m46.214259962s
+        5880
+
+Solver for day 20 initialized in 524.595µs
+Solution for day 20 part 1 in 26.349885ms
+        13289
+Solution for day 20 part 2 in 375.883483ms
+        2865721299243
+
+Solver for day 21 initialized in 1.222357ms
+Solution for day 21 part 1 in 500.802µs
+        110181395003396
+Solution for day 21 part 2 in 637.347µs
+        3721298272959
+
+Solver for day 22 initialized in 1.610407ms
+Solution for day 22 part 1 in 579.199µs
+        13566
+Solution for day 22 part 2 in 627.811µs
+        11451
+
+Solver for day 23 initialized in 366.768µs
+Solution for day 23 part 1 in 34.201071ms
+        3780
+Solution for day 23 part 2 in 2.745614705s
+        930
+
+Solver for day 24 initialized in 140.284µs
+Solution for day 24 part 1 in 143.504667ms
+        286
+Solution for day 24 part 2 in 407.210972ms
+        820
+
+Solver for day 25 initialized in 59.383µs
+Solution for day 25 part 1 in 1.673µs
+        2-0-01==0-1=2212=100
+Solution for day 25 part 2 in 70ns
+        Thank you, Eric Wastl, for your brilliant puzzles!

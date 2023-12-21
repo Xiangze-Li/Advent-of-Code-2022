@@ -25,7 +25,7 @@ func (p *p) Solve1() any {
 }
 
 func (p *p) Solve2() any {
-	return 0
+	return "Thank you, Eric Wastl, for your brilliant puzzles!"
 }
 
 func init() {
